@@ -21,6 +21,22 @@ body {
 	font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
 
+.skip_nav a {
+	position: fixed; 
+	left: 0;
+	top: -9999px; 
+	z-index: 9999;
+	width: 100%; 
+	line-height: 40px; 
+	text-align: center;
+	font-size: 0.875em;
+	background-color: #385170; 
+	color: #fff;
+} 
+.skip_nav a:focus {
+	top: 0;
+}
+
 /* header */
 
 header {
@@ -69,17 +85,33 @@ header .utils {
 
 header .utils ul {
 	display: flex;
-	gap:6px
 }
 
 header .utils ul li a{
 	display: block;
+	position: relative;
 	padding: 0px 12px;
 	line-height: 26px;
 	text-transform: uppercase;
 	font-size: 12px;
 	color: #999;
 }
+
+
+header .utils ul li a::after {
+	position: absolute;
+	content: "";
+	right: 0;
+	top: 8px;
+	width: 1px;
+	height: 10px;
+	background-color: #999;
+}
+
+header .utils ul li:last-child a::after {
+	display: none;
+}
+
 
 /* menu */
 
@@ -201,7 +233,6 @@ section {
 .banner2_2 {
 	width: 690px;
 	height: 388px;
-	overflow: hidden;
 }
 
 .banner1 .banner1_1 a img,
@@ -211,6 +242,14 @@ section {
 	object-fit: cover;
 	transform: scale(1);
 	transition: transform 0.3s ;
+}
+
+.banner1 .banner1_1 a,
+.banner2 .banner2_2 a  {
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 .banner1 .banner1_1 a:hover img,
@@ -251,7 +290,9 @@ section {
 }
 
 .banner1 .banner1_2 a:hover .desc,
-.banner2 .banner2_1 a:hover .desc {
+.banner2 .banner2_1 a:hover .desc,
+.banner1 .banner1_2 a:focus .desc,
+.banner2 .banner2_1 a:focus .desc {
 	text-decoration: underline;
 }
 
@@ -268,7 +309,9 @@ section {
 }
 
 .banner1 .banner1_2 a:hover .view_more,
-.banner2 .banner2_1 a:hover .view_more {
+.banner2 .banner2_1 a:hover .view_more,
+.banner1 .banner1_2 a:focus .view_more,
+.banner2 .banner2_1 a:focus .view_more {
 	text-decoration: none;
 	background-color: #b5252e;
 	color: #fff;
@@ -367,23 +410,25 @@ section {
 	transition: 0.3s;
 }
 
-.banner3 .banner3_left .banner3_left2:hover a {
+.banner3 .banner3_left .banner3_left2 a:hover,
+.banner3 .banner3_left .banner3_left2 a:focus {
 	background: url(../images/new1.jpg) no-repeat;
 }
 
-.banner3 .banner3_left .banner3_left2:hover a strong,
-.banner3 .banner3_left .banner3_left2:hover a span {
+.banner3 .banner3_left .banner3_left2 a:hover strong,
+.banner3 .banner3_left .banner3_left2 a:hover span,
+.banner3 .banner3_left .banner3_left2 a:focus strong,
+.banner3 .banner3_left .banner3_left2 a:focus span {
 	color: #fff;
 	transition: 0.3s;
 }
 
-.banner3 .banner3_left .banner3_left2:hover a span.view_more,
-.banner3 .banner3_left .banner3_left2:focus a span.view_more {
+.banner3 .banner3_left .banner3_left2 a:hover span.view_more,
+.banner3 .banner3_left .banner3_left2 a:focus span.view_more {
 	background-color: #b5252e;
 }
 
-
-.banner3 .banner3_right .banner3_right1  {
+.banner3 .banner3_right .banner3_right1 a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -397,25 +442,21 @@ section {
 	transition: 0.3s;
 } 
 
-.banner3 .banner3_right .banner3_right1 a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-}
 
-.banner3 .banner3_right .banner3_right1:hover {
+.banner3 .banner3_right .banner3_right1 a:hover,
+.banner3 .banner3_right .banner3_right1 a:focus {
 	background: url(../images/sale.jpg) no-repeat;
 }
 
-.banner3 .banner3_right .banner3_right1:hover a strong,
-.banner3 .banner3_right .banner3_right1:hover a span {
+.banner3 .banner3_right .banner3_right1 a:hover strong,
+.banner3 .banner3_right .banner3_right1 a:hover span,
+.banner3 .banner3_right .banner3_right1 a:focus strong,
+.banner3 .banner3_right .banner3_right1 a:focus span {
 	color: #fff;
 }
 
-.banner3 .banner3_right .banner3_right1:hover a span.view_more,
-.banner3 .banner3_right .banner3_right1:focus a span.view_more {
+.banner3 .banner3_right .banner3_right1 a:hover span.view_more,
+.banner3 .banner3_right .banner3_right1 a:focus span.view_more {
 	background-color: #b5252e;
 }
 
